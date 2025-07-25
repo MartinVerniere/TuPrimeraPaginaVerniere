@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Lista de Cursos</h1>
+    <div class="row">
+        {% for curso in cursos %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ curso.nombre }}</h5>
+                    <p class="card-text">Capacidad: {{ curso.capacidad_alumnos }} estudiantes</p>
+                    <p class="card-text"><small class="text-muted">Fecha de Inicio: {{ curso.fecha_inicio }}</small></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

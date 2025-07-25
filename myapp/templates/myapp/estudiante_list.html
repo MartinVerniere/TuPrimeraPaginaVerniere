@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Lista de Estudiantes</h1>
+    <div class="row">
+        {% for estudiante in estudiantes %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ estudiante.apellido }}, {{ estudiante.nombre }}</h5>
+                    <p class="card-text">Edad: {{ estudiante.edad }}</p>
+                    <p class="card-text"><small class="text-muted">Email: {{ estudiante.email }}</small></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
