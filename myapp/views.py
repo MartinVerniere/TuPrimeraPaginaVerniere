@@ -86,8 +86,8 @@ def curso_create(request):
         if form.is_valid():
             curso = Curso.objects.create(
                 nombre=request.POST['nombre'],
-                comision=request.POST['comision'],
-                profesor=request.POST['profesor']
+                capacidad_alumnos=request.POST['capacidad_alumnos'],
+                fecha_inicio=request.POST['fecha_inicio']
             )
             curso.save()
             return redirect('curso_list')

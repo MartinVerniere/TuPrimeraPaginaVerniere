@@ -1,5 +1,6 @@
 from django import forms
 from .models import Estudiante, Profesor, Curso
+from django.forms.widgets import DateInput
 
 class EstudianteForm(forms.Form):
     nombre = forms.CharField(max_length=100, label='Nombre del Estudiante')
@@ -38,16 +39,16 @@ class ProfesorForm(forms.Form):
         return profesor
     
 class CursoForm(forms.Form):
-    nombre = forms.CharField(max_length=100, label='Nombre del Curso')
-    comision = forms.IntegerField(label='Comision del Curso')
-    profesor = forms.CharField(max_length=100, label='Profesor del Curso')
+    nombre = forms.CharField(max_length=100, label='Nombre del curso')
+    capacidad_alumnos = forms.IntegerField(label='Capacidad de alumnos del curso')
+    fecha_inicio = forms.DateField(label='Fecha de inicio del curso', widget=DateInput(attrs={'type': 'date'}))
 
     def save(self, commit=True):
         # Crear una instancia del modelo Curso con los datos del formulario
         curso = Curso(
             nombre=self.cleaned_data['nombre'],
-            comision=self.cleaned_data['comision'],
-            profesor=self.cleaned_data['profesor']
+            capacidad_alumnos=self.cleaned_data['capacidad_alumnos'],
+            fecha_inicio=self.cleaned_data['fecha_inicio']
         )
         if commit:
             curso.save()
