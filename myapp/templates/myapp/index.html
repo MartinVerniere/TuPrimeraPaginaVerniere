@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="d-flex justify-content-center align-items-center">
-    <h1>Bienvenido - Tercera entrega</h1>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold mb-4">Bienvenido</h1>
+        <p class="lead mb-5">Usa el menú o los botones de abajo para explorar la aplicación.</p>
+
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'estudiante_list' %}" class="btn btn-outline-primary btn-lg px-4">
+                Ver Estudiantes
+            </a>
+            <a href="{% url 'curso_list' %}" class="btn btn-outline-success btn-lg px-4">
+                Ver Cursos
+            </a>
+            <a href="{% url 'profesor_list' %}" class="btn btn-outline-info btn-lg px-4">
+                Ver Profesores
+            </a>
+        </div>
+    </div>
 </div>
 {% endblock %}
-

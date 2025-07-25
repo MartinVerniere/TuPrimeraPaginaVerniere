@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Lista de Cursos</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form action="{% url 'curso_list' %}" method="get" class="mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Buscar...">
+                    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Tabla de cursos -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Capacidad</th>
+                    <th>Fecha de Inicio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+                <tr>
+                    <td>{{ curso.nombre }}</td>
+                    <td>{{ curso.capacidad_alumnos }}</td>
+                    <td>{{ curso.fecha_inicio }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" class="text-center text-muted">No se encontraron cursos.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Botón para crear un nuevo curso -->
+    <div class="text-center mt-4">
+        <a href="{% url 'curso_create' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-plus-lg"></i> Crear un nuevo curso
+        </a>
+    </div>
+</div>
+{% endblock %}
