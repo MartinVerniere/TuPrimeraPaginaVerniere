@@ -8,9 +8,9 @@
 - Si quiere que se muestren todos los resultados deje el campo de busqueda vacio y haga click en buscar.
 
 # Estructura de codigo
-- En myapp se encuentra la configuracion relacionada a la app, 
-- En el archivo models.py se detallan los modelos
-- En el archivo views.py se detallan las vistas
-- En el archivo forms.py se detallan los formularios
-- Dentro de templates hay un archivo base.html con lo relacionado al navbar
-- Dentro de templates/myapp se encuentran los archivos html relacionados a la pagina de inicio, y en cada subcarpeta los archivos html para la lista de elementos y para el formulario de creacion de un elemento nuevo
+- En /myapp se encuentra la configuracion relacionada a la app.
+- En el archivo models.py se detallan los modelos utilizados.
+- En el archivo views.py se detallan las vistas utilizadas.
+- En el archivo forms.py se detallan los formularios utilizados.
+- Dentro de templates hay un archivo base.html con lo relacionado al navbar.
+- Dentro de templates/myapp se encuentran los archivos html, que extienden al archivo base.html, relacionados a la pagina de inicio y en cada subcarpeta los archivos html para la lista de elementos y para el formulario de creacion de un elemento nuevo.
